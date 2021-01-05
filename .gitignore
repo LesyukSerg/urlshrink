@@ -1,0 +1,17 @@
+/1
+/node_modules
+/public/thumbnails
+/public/hot
+/public/storage
+/public/sitemap
+/storage/*.key
+/vendor
+/.idea
+/.vagrant
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/*.sublime-workspace
+/*.sublime-project
+*.zip
