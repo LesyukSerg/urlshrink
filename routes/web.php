@@ -12,11 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('/url_shrink', [\App\Http\Controllers\UrlController::class, 'getUrl'])->name('UrlShrink');
-
+//Route::post('/url_shrink', [\App\Http\Controllers\UrlController::class, 'makeShortUrl'])->name('UrlShrink');
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('Home');
+Route::get('/s/{url}', [\App\Http\Controllers\UrlController::class, 'gotoUrl'])->name('shortUrl');
 
-Route::get('/short/{url}', [\App\Http\Controllers\UrlController::class, 'gotoUrl'])->name('UrlRedirect');
-Route::get('/stat-list', [\App\Http\Controllers\UrlController::class, 'showStatisticAll'])->name('StatUrl');
-Route::get('/stat/{url}', [\App\Http\Controllers\UrlController::class, 'showStatistic'])->name('StatUrlOne');
+Route::get('/links', [\App\Http\Controllers\UrlController::class, 'showStatisticAll'])->name('StatUrl');
+Route::get('/links/{url}', [\App\Http\Controllers\UrlController::class, 'showStatistic'])->name('StatUrlOne');
 
