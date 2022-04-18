@@ -11,7 +11,7 @@ class shortUrls extends Model
 
     protected $table = 'short_urls';
     protected $primaryKey = 'id';
-    protected $dates = ['date_create', 'date_to'];
+    protected $dates = ['created_at', 'updated_at', 'date_to'];
     protected $fillable = ['url_original', 'url_short', 'use_count'];
 
     public static function getLast()
@@ -23,14 +23,14 @@ class shortUrls extends Model
 
     public static function getOne($short)
     {
-        return shortUrls::select('id', 'url_original', 'url_short', 'date_create', 'date_to', 'updated_at', 'use_count')
+        return shortUrls::select('id', 'url_original', 'url_short', 'create_at', 'date_to', 'updated_at', 'use_count')
             ->where('url_short', $short)
             ->first();
     }
 
     public static function getAll()
     {
-        return shortUrls::select('id', 'url_original', 'url_short', 'date_create', 'date_to', 'updated_at', 'use_count')
+        return shortUrls::select('id', 'url_original', 'url_short', 'created_at', 'date_to', 'updated_at', 'use_count')
             ->get();
     }
 

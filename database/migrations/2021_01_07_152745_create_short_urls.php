@@ -14,14 +14,13 @@ class CreateShortUrls extends Migration
     public function up()
     {
         Schema::create('short_urls', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id();
             $table->text('url_original');
             $table->char('url_short', 128)->unique();
-            $table->timestamp('date_create');
             $table->dateTime('date_to');
-            $table->integer('use_count');
-            $table->dateTime('updated_at')->nullable();
-            $table->timestamps();
+            $table->integer('use_count')->default(0);
+            $table->timestamp('created_at')->nullable()->default(now());
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
